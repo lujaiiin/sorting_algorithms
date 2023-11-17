@@ -1,43 +1,32 @@
 #include "sort.h"
 
 /**
- * swp - exchange values of 2 variables
- * @x: pointer to integer
- * @y: pointer to integer
- * Return: nothing
- */
-
-void swp(int *x, int *y)
-{
-int tmp;
-tmp = *x;
-*x = *y;
-*y = tmp;
-}
-
-/**
- * bubble_sort - sort array ascendingly
- * @array: array of integers
- * @size: array length
- * Return: nothing
+ * bubble_sort - function to print arry by bubble sort
+ * @array: the array well sorted
+ * @size: the size of arry
+ * Return: void
  */
 
 void bubble_sort(int *array, size_t size)
 {
-size_t i, j;
+	size_t i, j;
+	int temp = 0;
 
-if (!array || size == 0)
-return;
-
-for (i = 0; i < size; i++)
-{
-for (j = 0; j < size  - 1 - i; j++)
-{
-if (array[j] > array[j + 1])
-{
-swp(&array[j], &array[j + 1]);
-print_array(array, size);
-}
-}
-}
+	if (!array || size <= 1)
+	{
+		return;
+	}
+	for (i = 0; i < size - 1; i++)
+	{
+		for (j = 0; j < size - i - 1; j++)
+		{
+			if (array[j] > array[j + 1])
+			{
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+				print_array(array, size);
+			}
+		}
+	}
 }
