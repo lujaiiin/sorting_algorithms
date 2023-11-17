@@ -9,22 +9,19 @@
 
 listint_t *switch_node(listint_t *node1, listint_t *node2)
 {
-listint_t *tmp = NULL;
+listint_t *prev_node = node1->prev;
+listint_t *next_node = node2->next;
 
-if (node2->next)  /*handle last node*/
-{
-tmp = node2->next;
-node2->next->prev = node1;
-}
-if (node1->prev) /*handle first node*/
-node1->prev->next = node2;
-else
-node2->prev = NULL;
+if (prev_node)
+prev_node->next = node2;
+if (next_node)
+next_node->prev = node1;
 
-node2->prev = node1->prev;
-node2->next = node1;
+node1->next = next_node;
 node1->prev = node2;
-node1->next = tmp;
+node2->next = node1;
+node2->prev = prev_node;
+
 return (node2);
 }
 
@@ -39,7 +36,7 @@ void insertion_sort_list(listint_t **list)
 
 listint_t *h, *key, *prv_node;
 h = *list;
-if (list == NULL || *list == NULL || (*list)->next == NULL)
+if (!h->next || !h)
 return;
 
 h = h->next;
@@ -53,6 +50,10 @@ while (key->prev) /*switch nodes*/
 prv_node = key->prev;
 if (key->n < prv_node->n)
 {
+
+if (!prv_node->prev)
+*list = key;
+
 key = switch_node(prv_node, key);
 if (!key->prev)
 *list = key;
