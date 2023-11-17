@@ -46,9 +46,6 @@ while (h) /*loop starts from second node*/
 key = h;
 h = h->next; /*enusre fixing h of swap*/
 
-if (!key)
-return;
-
 while (key->prev) /*switch nodes*/
 {
 prv_node = key->prev;
