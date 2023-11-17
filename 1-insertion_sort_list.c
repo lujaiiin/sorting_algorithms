@@ -39,7 +39,7 @@ void insertion_sort_list(listint_t **list)
 
 listint_t *h, *key, *prv_node;
 h = *list;
-if (list == NULL || *list == NULL || (*list)->next == NULL)
+if (!h->next || !h)
 return;
 
 h = h->next;
@@ -53,6 +53,10 @@ while (key->prev) /*switch nodes*/
 prv_node = key->prev;
 if (key->n < prv_node->n)
 {
+
+if (!prv_node->prev)
+*list = key;
+
 key = switch_node(prv_node, key);
 if (!key->prev)
 *list = key;
