@@ -39,7 +39,7 @@ void insertion_sort_list(listint_t **list)
 
 listint_t *h, *key, *prv_node;
 h = *list;
-if (!h->next || !h)
+if (list == NULL || *list == NULL || (*list)->next == NULL)
 return;
 
 h = h->next;
