@@ -21,6 +21,7 @@ struct listint_s *next;
 
 /*helper funcion*/
 void swp(int *x, int *y);
+listint_t *switch_node(listint_t *node1, listint_t *node2);
 
 
 void print_array(const int *array, size_t size);
