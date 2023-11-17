@@ -51,8 +51,8 @@ void quick_reco(int *array, int start, int end, size_t size)
                 return;
         }
         pivote = Lomuto(array, size, start, end);
-        quick_reco(array, size, start, pivote - 1);
-        quick_reco(array, size, pivote + 1, end);
+        quick_reco(array, start, pivote - 1, size);
+        quick_reco(array, pivote + 1, end, size);
 }
 
 /**
