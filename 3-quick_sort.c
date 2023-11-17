@@ -1,10 +1,11 @@
 #include "sort.h"
 
 /**
- * operation - function to make the swap operation
+ * Lomuto - function to make the swap operation
  * @array: the
  * @start: start
  * @end: end
+ * @size: size
  * Return: the pivote
  */
 
@@ -45,14 +46,15 @@ int Lomuto(int *array, size_t  size, int start, int end)
 
 void quick_reco(int *array, int start, int end, size_t size)
 {
-        int pivote;
-        if (end <= start)
-        {
-                return;
-        }
-        pivote = Lomuto(array, size, start, end);
-        quick_reco(array, start, pivote - 1, size);
-        quick_reco(array, pivote + 1, end, size);
+	int pivote;
+
+	if (end <= start)
+	{
+		return;
+	}
+	pivote = Lomuto(array, size, start, end);
+	quick_reco(array, start, pivote - 1, size);
+	quick_reco(array, pivote + 1, end, size);
 }
 
 /**
@@ -63,9 +65,9 @@ void quick_reco(int *array, int start, int end, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
-        if (!array || size <= 1)
-        {
-                return;
-        }
-        quick_reco(array, 0, size - 1, size);
+	if (!array || size <= 1)
+	{
+		return;
+	}
+	quick_reco(array, 0, size - 1, size);
 }
