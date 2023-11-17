@@ -8,10 +8,10 @@
  * Return: the pivote
  */
 
-int Lomuto(int *array, size_t size, size_t start, size_t end)
+int Lomuto(int *array, size_t  size, int start, int end)
 {
 	int pivote = array[end], temp;
-	size_t i = start - 1, j;
+	int i = start - 1, j;
 
 	for (j = start; j <= end - 1; j++)
 	{
@@ -43,7 +43,7 @@ int Lomuto(int *array, size_t size, size_t start, size_t end)
  *Return: void
  */
 
-void quick_reco(int *array, size_t start, size_t end, size_t size)
+void quick_reco(int *array, int start, int end, size_t size)
 {
         int pivote;
         if (end <= start)

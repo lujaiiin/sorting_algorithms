@@ -22,8 +22,8 @@ struct listint_s *next;
 /*helper funcion*/
 void swp(int *x, int *y);
 listint_t *switch_node(listint_t *node1, listint_t *node2);
-int Lomuto(int *array, size_t size, size_t start, size_t end);
-void quick_reco(int *array, size_t start, size_t end, size_t size);
+int Lomuto(int *array, size_t size, int start, int end);
+void quick_reco(int *array, int start, int end, size_t size);
 
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
