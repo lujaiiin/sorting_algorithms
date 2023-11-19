@@ -160,7 +160,8 @@ void merge_sort(int *array, size_t size)
 {
 int *tmp_ar;
 size_t i;
-
+if (array == NULL || size < 2)
+return;
 /* calling malloc is allowed 1 time only*/
 tmp_ar = malloc(sizeof(int) * size);
 if (!tmp_ar)
