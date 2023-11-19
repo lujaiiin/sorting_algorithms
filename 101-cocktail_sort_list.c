@@ -39,7 +39,6 @@ return;
 while (isswaped)
 {
 isswaped = 0;
-
 while (h->next) /*move bigger node to the end*/
 {
 if (h->n > h->next->n)
@@ -66,5 +65,6 @@ isswaped = 1;
 }
 t = t->prev;
 }
+h = *list;
 }
 }
