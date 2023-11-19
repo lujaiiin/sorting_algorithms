@@ -66,6 +66,5 @@ isswaped = 1;
 t = t->prev;
 }
 h = *list;
-tail = t;
 }
 }
