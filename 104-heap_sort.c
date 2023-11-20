@@ -42,7 +42,7 @@ void heap_sort(int *array, size_t size)
 
 	for (i = size / 2 - 1; i >= 0; i--)
 		heapify(array, size, i, len);
-	for (i = size - 1; i >= 0; i--)
+	for (i = size - 1; i > 0; i--)
 	{
 		temp = array[0];
 		array[0] = array[i];
