@@ -23,7 +23,7 @@ j--;
 } while (arr[j] > pivot);
 if (i >= j)
 {
-return (j);
+return (i);
 }
 temp = arr[i];
 arr[i] = arr[j];
@@ -47,9 +47,11 @@ if (low < high)
 {
 int pi = partition_srt(arr, low, high, size);
 
-quickSrt(arr, low, pi, size);
-quickSrt(arr, pi + 1, high, size);
+quickSrt(arr, low, pi - 1, size);
+quickSrt(arr, pi, high, size);
 }
+else
+return;
 }
 
 /**
